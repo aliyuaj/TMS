@@ -1,0 +1,29 @@
+<Connected>:
+    BoxLayout:
+        orientation: 'vertical'
+        canvas.before:
+            Rectangle:
+                size: self.size
+                pos: self.pos
+                source: 'data/background.png'
+        BoxLayout:
+            orientation:'horizontal'
+            size_hint_y:0.1
+            Label:
+                text: "Welcome to TMS"
+                font_size: '20dp'
+                size_hint_y: None
+                height:self.parent.height
+                size_hint_x: 3
+            Spinner:
+                id:spin
+                text: 'Home'
+                values: ('Dashboard', 'Students', 'Timetable', 'Logout')
+                size_hint_y: None
+                height: self.parent.height
+                size_hint_x: 1
+                on_text:root.dashboard_clicked(spin.text)
+        BoxLayout:
+            id:content
+            font_size: 24
+            text:spin.text    

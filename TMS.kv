@@ -1,0 +1,74 @@
+#:include connected.kv
+<Login>:
+    canvas.before:
+        Color:
+            rgba:1,1,1,1
+        Rectangle:
+            size:self.size
+            pos:self.pos
+    error_msg:error
+    BoxLayout:
+        id: login_layout
+        orientation: 'vertical'
+        padding: [100,50,100,50]
+        spacing: '20dp'
+        Image:
+            source: 'Gantt.png'  
+            size_hint_x:0.05
+        Label:
+            text: 'IT CENTRAL TRAINING'
+            font_family:'Verdana'
+            text_size:self.width,None
+            bold:True
+            italic: True
+            color:0.2,0.5,0.2,1
+            font_size: '32dp'       
+
+        Label:
+            text: 'Username'
+            color:0.1,0.9,0.1,1
+            font_size: 18
+            text_size: self.width, self.height
+            halign: 'left'
+            valign:'center'
+
+        TextInput:
+            id: login
+            multiline:False
+            write_tab: False
+            valign:'center'
+            font_size: '28dp'
+            height:self.minimum_height
+            size_hint_y:None
+    
+        Label:
+            text: 'Password'
+            color:0.1,0.9,0.1,1
+            halign: 'left'
+            font_size: '18dp'
+            text_size: self.width, 20
+
+        TextInput:
+            id: password
+            multiline:False
+            write_tab: False
+            password:True  
+            valign:'bottom'
+            font_size: '28dp'
+            height:self.minimum_height
+            size_hint_y:None
+        Button:
+            background_color:[0.1,0.9,0.1,1]
+            border: (20,20,20,20)
+            height:'60dp'
+            size_hint_y:None
+            text: 'Login'
+            font_size: '24dp'
+            on_press: root.do_login(login.text, password.text)
+        Label:
+            id:error
+            text: ''
+            color:1,0,0,1
+            halign: 'left'
+            font_size: '18dp'
+            text_size: self.width, 20

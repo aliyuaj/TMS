@@ -1,0 +1,17 @@
+BoxLayout:
+    orientation: 'vertical'
+    canvas.before:
+        Rectangle:
+            size: self.size
+            pos: self.pos
+            source: 'data/background.png'
+    BoxLayout:
+        orientation:'horizontal'
+        size_hint_y:0.1
+        Label:
+            text: "Students Zone"
+            font_size: '20dp'
+            size_hint_y: None
+            height:self.parent.height
+            size_hint_x: 3
+        
